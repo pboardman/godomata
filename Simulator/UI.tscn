@@ -1,0 +1,206 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Simulator/UI.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=3]
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 3 )
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 280.0
+margin_bottom = 290.0
+theme = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+margin_right = 280.0
+margin_bottom = 290.0
+color = Color( 0.0470588, 0.0431373, 0.0431373, 0.52549 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+margin_left = -0.5
+margin_right = 279.5
+margin_bottom = 420.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="Label" parent="Control/VBoxContainer"]
+margin_right = 280.0
+margin_bottom = 19.0
+text = "Godomata Cellular automata simulator"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="Control/VBoxContainer"]
+margin_top = 23.0
+margin_right = 280.0
+margin_bottom = 27.0
+
+[node name="RuleLabel" type="Label" parent="Control/VBoxContainer"]
+margin_top = 31.0
+margin_right = 280.0
+margin_bottom = 50.0
+text = "Rules"
+align = 1
+
+[node name="BornSetting" type="HBoxContainer" parent="Control/VBoxContainer"]
+margin_top = 54.0
+margin_right = 280.0
+margin_bottom = 83.0
+
+[node name="BornLabel" type="Label" parent="Control/VBoxContainer/BornSetting"]
+margin_top = 5.0
+margin_right = 64.0
+margin_bottom = 24.0
+text = "born :      "
+align = 3
+
+[node name="BornLineEdit" type="LineEdit" parent="Control/VBoxContainer/BornSetting"]
+margin_left = 68.0
+margin_right = 126.0
+margin_bottom = 29.0
+text = "3"
+align = 3
+
+[node name="SurviveSetting" type="HBoxContainer" parent="Control/VBoxContainer"]
+margin_top = 87.0
+margin_right = 280.0
+margin_bottom = 116.0
+
+[node name="SurviveLabel" type="Label" parent="Control/VBoxContainer/SurviveSetting"]
+margin_top = 5.0
+margin_right = 64.0
+margin_bottom = 24.0
+text = "Survive : "
+align = 3
+
+[node name="SurviveLineEdit" type="LineEdit" parent="Control/VBoxContainer/SurviveSetting"]
+margin_left = 68.0
+margin_right = 126.0
+margin_bottom = 29.0
+text = "2"
+align = 3
+
+[node name="SurviveLabel2" type="Label" parent="Control/VBoxContainer/SurviveSetting"]
+margin_left = 130.0
+margin_top = 5.0
+margin_right = 184.0
+margin_bottom = 24.0
+text = "or more"
+
+[node name="DieSetting" type="HBoxContainer" parent="Control/VBoxContainer"]
+margin_top = 120.0
+margin_right = 280.0
+margin_bottom = 149.0
+
+[node name="DieLabel" type="Label" parent="Control/VBoxContainer/DieSetting"]
+margin_top = 5.0
+margin_right = 63.0
+margin_bottom = 24.0
+text = "Die :        "
+align = 3
+
+[node name="DieLineEdit" type="LineEdit" parent="Control/VBoxContainer/DieSetting"]
+margin_left = 67.0
+margin_right = 125.0
+margin_bottom = 29.0
+text = "4"
+align = 3
+
+[node name="DieLabel2" type="Label" parent="Control/VBoxContainer/DieSetting"]
+margin_left = 129.0
+margin_top = 5.0
+margin_right = 183.0
+margin_bottom = 24.0
+text = "or more"
+
+[node name="HSeparator2" type="HSeparator" parent="Control/VBoxContainer"]
+margin_top = 153.0
+margin_right = 280.0
+margin_bottom = 157.0
+
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
+margin_top = 161.0
+margin_right = 280.0
+margin_bottom = 180.0
+text = "Controls"
+align = 1
+
+[node name="StartSimulation" type="Button" parent="Control/VBoxContainer"]
+margin_top = 184.0
+margin_right = 280.0
+margin_bottom = 209.0
+text = "Start Simulation"
+
+[node name="StopSimulation" type="Button" parent="Control/VBoxContainer"]
+visible = false
+margin_top = 104.0
+margin_right = 260.0
+margin_bottom = 124.0
+text = "Stop Simulation"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetSimulation" type="Button" parent="Control/VBoxContainer"]
+margin_top = 213.0
+margin_right = 280.0
+margin_bottom = 238.0
+text = "Reset Simulation"
+
+[node name="HSeparator3" type="HSeparator" parent="Control/VBoxContainer"]
+margin_top = 242.0
+margin_right = 280.0
+margin_bottom = 246.0
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer"]
+margin_top = 250.0
+margin_right = 280.0
+margin_bottom = 269.0
+text = "Simulation speed"
+align = 1
+
+[node name="SpeedSetting" type="HBoxContainer" parent="Control/VBoxContainer"]
+margin_top = 273.0
+margin_right = 280.0
+margin_bottom = 292.0
+grow_horizontal = 2
+
+[node name="SpeedSlider" type="HSlider" parent="Control/VBoxContainer/SpeedSetting"]
+margin_right = 246.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+max_value = 5.0
+step = 0.1
+value = 4.9
+
+[node name="SpeedLabel" type="Label" parent="Control/VBoxContainer/SpeedSetting"]
+margin_left = 250.0
+margin_right = 280.0
+margin_bottom = 19.0
+grow_horizontal = 2
+text = "98%"
+[connection signal="mouse_entered" from="Control" to="." method="_on_Control_mouse_entered"]
+[connection signal="mouse_exited" from="Control" to="." method="_on_Control_mouse_exited"]
+[connection signal="text_changed" from="Control/VBoxContainer/BornSetting/BornLineEdit" to="." method="_on_BornLineEdit_text_changed"]
+[connection signal="text_changed" from="Control/VBoxContainer/SurviveSetting/SurviveLineEdit" to="." method="_on_SurviveLineEdit_text_changed"]
+[connection signal="text_changed" from="Control/VBoxContainer/DieSetting/DieLineEdit" to="." method="_on_DieLineEdit_text_changed"]
+[connection signal="pressed" from="Control/VBoxContainer/StartSimulation" to="." method="_on_StartSimulation_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/StopSimulation" to="." method="_on_StopSimulation_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/ResetSimulation" to="." method="_on_ResetSimulation_pressed"]
+[connection signal="value_changed" from="Control/VBoxContainer/SpeedSetting/SpeedSlider" to="." method="_on_SpeedSlider_value_changed"]

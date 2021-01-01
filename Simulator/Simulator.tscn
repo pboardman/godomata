@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Alive/Alive.tres" type="TileSet" id=1]
+[ext_resource path="res://Simulator/Camera.gd" type="Script" id=2]
+[ext_resource path="res://Simulator/UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Simulator/Simulator.gd" type="Script" id=4]
+
+[node name="Simulator" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Selecter" type="TileMap" parent="."]
+visible = false
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 1, 1 )
+format = 1
+
+[node name="Buffer1" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 1, 1 )
+format = 1
+tile_data = PoolIntArray( -3604577, 0, 0, -3539040, 0, 0, -3473506, 0, 0, -3473505, 0, 0, -3473504, 0, 0 )
+
+[node name="Buffer2" type="TileMap" parent="."]
+visible = false
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 1, 1 )
+format = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.2, 0.2 )
+script = ExtResource( 2 )
+
+[node name="UI" parent="." instance=ExtResource( 3 )]
+
+[node name="WaitBetweenGenTimer" type="Timer" parent="."]
+wait_time = 0.1
+[connection signal="born_updated" from="UI" to="." method="update_born"]
+[connection signal="die_updated" from="UI" to="." method="update_die"]
+[connection signal="mouse_in_ui" from="UI" to="." method="_on_UI_mouse_in_ui"]
+[connection signal="mouse_left_ui" from="UI" to="." method="_on_UI_mouse_left_ui"]
+[connection signal="reset_simulation" from="UI" to="." method="reset_simulation"]
+[connection signal="simulation_speed_updated" from="UI" to="." method="update_simulation_speed"]
+[connection signal="start_simulation" from="UI" to="." method="start_simulation"]
+[connection signal="stop_simulation" from="UI" to="." method="stop_simulation"]
+[connection signal="survive_updated" from="UI" to="." method="update_survive"]
+[connection signal="timeout" from="WaitBetweenGenTimer" to="." method="_compute_next_generation"]
